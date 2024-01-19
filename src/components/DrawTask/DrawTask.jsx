@@ -2,9 +2,10 @@ import { CheckBox } from "./DrawCheckBox";
 import Trash from "../../assets/svg/trash.svg";
 import PropTypes from "prop-types";
 
-export function DrawTask({ value, deleteTask, handleCompleted, completedTasks}) {
+export function DrawTask({ value, deleteTask, handleCompleted, completedTasks, taskCompleted }) {
 
-  const isCompleted = completedTasks.includes(value) ? "line-through" : ""; 
+
+  const isCompleted = completedTasks.includes(value) ? "line-through" : "";
   const isCompletedButton = completedTasks.includes(value) ? "opacity-0" : "";
 
   return (
@@ -18,7 +19,7 @@ export function DrawTask({ value, deleteTask, handleCompleted, completedTasks}) 
             <CheckBox  />
           </button>
           
-              <button className={isCompletedButton} onClick={deleteTask}>
+              <button className={taskCompleted ? " " : isCompletedButton } onClick={deleteTask}>
               <img
                 title="Eliminar tarea"
                 className="cursor-pointer"
@@ -29,7 +30,7 @@ export function DrawTask({ value, deleteTask, handleCompleted, completedTasks}) 
 
         </div>
         <div>
-          <p className={`${isCompleted}`}>{value}</p>
+          <p className={`${taskCompleted ? " " : isCompleted }`}>{value}</p>
           <small>Tareas</small>
         </div>
       </div>
@@ -37,10 +38,12 @@ export function DrawTask({ value, deleteTask, handleCompleted, completedTasks}) 
   );
 }
 
+
 DrawTask.propTypes = {
   value: PropTypes.string.isRequired,
   deleteTask: PropTypes.func.isRequired,
   handleCompleted: PropTypes.func.isRequired,
   completedTasks: PropTypes.array.isRequired,
   handleDeleteCompletedTask: PropTypes.func.isRequired,
+  taskCompleted: PropTypes.string.isRequired,
 };

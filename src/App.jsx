@@ -22,6 +22,7 @@ function App() {
     const doneTask = tasks[index];
     deleteTask(index);
     setCompletedTasks([...completedTasks, doneTask]);
+   
   };
 
   const handleDeleteCompletedTask = (index) => {
@@ -71,10 +72,12 @@ function App() {
               <DrawTask
                 key={index}
                 value={task}
+                tasks={tasks}
                 deleteTask={() => {deleteTask(index)}}
                 handleCompleted={() => {handleCompleted(index)}}
                 completedTasks={completedTasks}
                 handleDeleteCompletedTask={() => {handleDeleteCompletedTask(index)}}
+                taskCompleted={task}
               />
             );
           })
