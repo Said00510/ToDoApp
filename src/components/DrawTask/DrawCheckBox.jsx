@@ -1,8 +1,5 @@
 
 export function CheckBox() {
-
- 
-
   return (
       <span
         data-is-focusable="true"

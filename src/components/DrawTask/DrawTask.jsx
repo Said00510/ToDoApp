@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 export function DrawTask({ value, deleteTask, handleCompleted, completedTasks, taskCompleted }) {
 
-
   const isCompleted = completedTasks.includes(value) ? "line-through" : "";
   const isCompletedButton = completedTasks.includes(value) ? "opacity-0" : "";
 
@@ -18,7 +17,7 @@ export function DrawTask({ value, deleteTask, handleCompleted, completedTasks, t
           >
             <CheckBox  />
           </button>
-          
+
               <button className={taskCompleted ? " " : isCompletedButton } onClick={deleteTask}>
               <img
                 title="Eliminar tarea"
