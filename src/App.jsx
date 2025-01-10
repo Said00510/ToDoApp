@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { TaskAdd } from "./components/TaskAdd.jsx";
 import "./App.css";
-import { today } from "./constants.js";
 import { DrawTask } from "./components/DrawTask/DrawTask.jsx";
 import { CardTask } from "./components/CardTask.jsx";
 import { CompletedTask } from "./components/DrawTask/CompletedTask.jsx";
+import { Header } from "./components/Header.jsx";
 
 
 function App() {
@@ -59,10 +59,7 @@ function App() {
   return (
     <>
       <main>
-        <div className="text-white">
-          <h1 className="text-3xl font-semibold">Mi Día</h1>
-          <small>{today}</small>
-        </div>
+        <Header />
 
         {tasks.length === 0 && completedTasks.length === 0 ? (
           <CardTask />
