@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Plus from "../assets/svg/plus.svg";
 import PropTypes from "prop-types";
+import { TaskContext } from "../context/taskContext";
 
-export function TaskAdd({ createNewTask }) {
+export function TaskAdd() {
   const [value, setValue] = useState([""]);
+  const { createNewTask } = useContext(TaskContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,6 +13,7 @@ export function TaskAdd({ createNewTask }) {
       alert("No puedes agregar una tarea vacia");
       return;
     }
+    console.log({value})
     createNewTask(value);
     setValue("");
   };
@@ -36,6 +39,4 @@ export function TaskAdd({ createNewTask }) {
   );
 }
 
-TaskAdd.propTypes = {
-  createNewTask: PropTypes.func.isRequired,
-};
+
