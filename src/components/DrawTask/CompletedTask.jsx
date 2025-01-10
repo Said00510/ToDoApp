@@ -1,7 +1,7 @@
 import { DrawTask } from "./DrawTask.jsx";
 import PropTypes from "prop-types";
 
-export function CompletedTask({ completedTasks, handleDeleteCompletedTask }) {
+export function CompletedTask({handleDeleteCompletedTask, completedTasks}) {
   return (
     <div>
       <div className="flex gap-2 text-white my-4">
@@ -14,10 +14,9 @@ export function CompletedTask({ completedTasks, handleDeleteCompletedTask }) {
             <DrawTask
               key={index}
               value={task}
-              deleteTask={() => {}}
-              handleCompleted={() => {handleDeleteCompletedTask(index)}}
+              handleCompleted={() => handleDeleteCompletedTask(index)}
               completedTasks={completedTasks}
-            />
+              />
           );
         })}
       </div>
@@ -25,7 +24,7 @@ export function CompletedTask({ completedTasks, handleDeleteCompletedTask }) {
   );
 }
 
-CompletedTask.propTypes = {
-  completedTasks: PropTypes.array.isRequired,
-  handleDeleteCompletedTask: PropTypes.func.isRequired,
-};
+// CompletedTask.propTypes = {
+//   completedTasks: PropTypes.array.isRequired,
+//   handleDeleteCompletedTask: PropTypes.func.isRequired,
+// };
